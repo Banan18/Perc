@@ -1,5 +1,6 @@
 package com.bananarepublick.banan.perc.fragment;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.bananarepublick.banan.perc.ImageAdapter;
@@ -81,7 +83,17 @@ public class FragmentRest extends Fragment {
         ImageAdapter imageAdapter = new ImageAdapter(getActivity());
         imageAdapter.setId(3);
         gridView.setAdapter(imageAdapter);
-
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) {
+                    Fragment fragment = new FragmentMenu();
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.MyFrameLayout, fragment);
+                    ft.commit();
+                }
+            }
+        });
 
     }
 
