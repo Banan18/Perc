@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        Display(1);
 
 
 
@@ -95,22 +95,27 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
 
             case 1:
+                setTitle(R.string.frag_rest);
                 fragment = new FragmentRest();
                 break;
 
             case R.id.menu:
+                setTitle(R.string.menu_item);
                 fragment = new FragmentMenu();
                 break;
 
             case R.id.sale:
+                setTitle(R.string.sale_item);
                 fragment = new FragmentSale();
                 break;
 
             case R.id.delivery:
+                setTitle(R.string.delivery_item);
                 fragment = new FragmentDelivery();
                 break;
 
             case R.id.phone:
+                setTitle(R.string.phone_item);
                 fragment = new FragmentRest();
                 break;
 

@@ -51,7 +51,7 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        View grid;
+        View grid = null;
 
 
         if (convertView == null) {
@@ -60,27 +60,34 @@ public class ImageAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             assert inflater != null;
-            grid = inflater.inflate(R.layout.cellgrid, parent, false);
+              if(mParam1 == 1){
+               grid = inflater.inflate(R.layout.gridmenu, parent, false);
+            }else {
+
+                  grid = inflater.inflate(R.layout.cellgrid, parent, false);
+              }
         } else {
             grid = (View) convertView;
 
         }
+        TextView textView = (TextView) grid.findViewById(R.id.textpart);
         switch (mParam1) {
 
 
             case 1:
 
                 ImageView imageView = (ImageView) grid.findViewById(R.id.imagepart);
-            TextView textView = (TextView) grid.findViewById(R.id.textpart);
+
             imageView.setImageResource(mThumbIds[position]);
-            textView.setText(mTextIds[position]);
+
             break;
 
             case 2:
+
                 imageView = (ImageView) grid.findViewById(R.id.imagepart);
-                textView = (TextView) grid.findViewById(R.id.textpart);
+
                 textView.setText(mTextActionIds[position]);
-                textView = (TextView) grid.findViewById(R.id.textpart2);
+
                 textView.setText(mTextActionDopIds[position]);
             imageView.setImageResource(mAction[position]);
 
@@ -107,7 +114,7 @@ public class ImageAdapter extends BaseAdapter {
     private Integer[] mAction = {R.drawable.action1, R.drawable.action2,
             R.drawable.action3, R.drawable.action4};
 
-    private Integer[] mTextIds = {R.string.cat1, R.string.cat2, R.string.cat3, R.string.cat4};
+
     private Integer[] mTextActionIds = {R.string.act1, R.string.act2, R.string.act3, R.string.act4};
     private Integer[] mTextActionDopIds = {R.string.act1_1, R.string.act1_1, R.string.act1_1, R.string.act1_1};
 

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.bananarepublick.banan.perc.ImageAdapter;
+import com.bananarepublick.banan.perc.ImageAdapterTwo;
 import com.bananarepublick.banan.perc.R;
 
 /**
@@ -69,19 +69,21 @@ public class FragmentMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
         GridView gridView = (GridView) view.findViewById(R.id.gridView1);
-        ImageAdapter imageAdapter = new ImageAdapter(getActivity());
-       // imageAdapter.setId(1);
-        gridView.setAdapter(imageAdapter);
+        ImageAdapterTwo imageAdapterTwo = new ImageAdapterTwo(getActivity());
+        gridView.setAdapter(imageAdapterTwo);
+
+
 
 
     }

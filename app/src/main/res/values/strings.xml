@@ -16,8 +16,10 @@
     <string name="bellini_group">Bellini group</string>
     <string name="cat1">Пицца</string>
     <string name="cat2">Паста</string>
-    <string name="cat3">Салаты</string>
-    <string name="cat4">Десерты</string>
+    <string name="cat3">Равиоли</string>
+    <string name="cat4">Лазанья</string>
+    <string name="cat5">Салаты</string>
+    <string name="cat6">Десерты</string>
     <string name="act1">Лови момент</string>
     <string name="act2">Юбилейный заказ</string>
     <string name="act3">Попробуй набор «Пир»!</string>
@@ -26,4 +28,6 @@
     <string name="act2_1">Попробуй набор «Пир»!</string>
     <string name="act3_1">Юбилейный заказ</string>
     <string name="act4_1">Любимое блюдо с собой!</string>
+    <string name="frag_rest">Все рестораны</string>
+
 </resources>

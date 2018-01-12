@@ -1,11 +1,11 @@
 package com.bananarepublick.banan.perc.fragment;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,7 +86,9 @@ public class FragmentRest extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 if(position == 0) {
+                    getActivity().setTitle(R.string.menu_item);
                     Fragment fragment = new FragmentMenu();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.MyFrameLayout, fragment);
