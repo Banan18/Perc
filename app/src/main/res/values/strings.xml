@@ -14,12 +14,12 @@
     <string name="basket_item">Корзина</string>
     <string name="phone_item">Контакты</string>
     <string name="bellini_group">Bellini group</string>
-    <string name="cat1">Пицца</string>
-    <string name="cat2">Паста</string>
-    <string name="cat3">Равиоли</string>
-    <string name="cat4">Лазанья</string>
-    <string name="cat5">Салаты</string>
-    <string name="cat6">Десерты</string>
+    <string name="cat">Пицца</string>
+    <string name="cat1">Паста</string>
+    <string name="cat2">Равиоли</string>
+    <string name="cat3">Лазанья</string>
+    <string name="cat4">Салаты</string>
+    <string name="cat5">Десерты</string>
     <string name="act1">Лови момент</string>
     <string name="act2">Юбилейный заказ</string>
     <string name="act3">Попробуй набор «Пир»!</string>
@@ -29,5 +29,15 @@
     <string name="act3_1">Юбилейный заказ</string>
     <string name="act4_1">Любимое блюдо с собой!</string>
     <string name="frag_rest">Все рестораны</string>
+    <string name="rest">Перцы</string>
+    <string name="rest1">Перцы</string>
+    <string name="rest2">Перцы</string>
+    <string name="rest3">Перцы</string>
+    <string name="menu">Пицца Портобелло</string>
+    <string name="menu1">Пицца Кон Карне</string>
+    <string name="menu2">Пицца Пепперони</string>
+    <string name="menu3">Пица Карбонара</string>
+    <string name="menu4">Пицца Цезарь</string>
+    <string name="menu5">Пицца Маргарита</string>
 
 </resources>

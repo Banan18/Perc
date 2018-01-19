@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.bananarepublick.banan.perc.ImageAdapterTwo;
+import com.bananarepublick.banan.perc.Adapters.ImageAdapterTwo;
+import com.bananarepublick.banan.perc.Adapters.Prod;
 import com.bananarepublick.banan.perc.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,13 +27,12 @@ import com.bananarepublick.banan.perc.R;
 public class FragmentMenu extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param2";
+    private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,31 +65,29 @@ public class FragmentMenu extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 
     @Override
-    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ArrayList<Prod> objects = new ArrayList<Prod>();
+        ImageAdapterTwo adapter;
 
+        GridView gridView = (GridView) view.findViewById(R.id.gridView3);
+        adapter = new ImageAdapterTwo(getActivity(),objects);
+        for (int i = 0; i <= 5; i++) {
+            objects.add(new Prod(R.string.menu +i, i+100 , R.drawable.ic_menu +i));
+        }
 
-        GridView gridView = (GridView) view.findViewById(R.id.gridView1);
-        ImageAdapterTwo imageAdapterTwo = new ImageAdapterTwo(getActivity());
-        gridView.setAdapter(imageAdapterTwo);
-
-
-
+        gridView.setAdapter(adapter);
 
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

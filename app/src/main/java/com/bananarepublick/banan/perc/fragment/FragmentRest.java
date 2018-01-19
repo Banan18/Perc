@@ -12,8 +12,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.bananarepublick.banan.perc.ImageAdapter;
+import com.bananarepublick.banan.perc.Adapters.ImageAdapter;
+import com.bananarepublick.banan.perc.Adapters.Rest;
 import com.bananarepublick.banan.perc.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,19 +80,24 @@ public class FragmentRest extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ArrayList<Rest> objects = new ArrayList<Rest>();
+        ImageAdapter adapter;
 
+       GridView gridView = (GridView) view.findViewById(R.id.gridView4);
+        adapter = new ImageAdapter(getActivity(),objects);
+          for (int i = 0; i <= 3; i++) {
+              objects.add(new Rest(R.string.rest +i, R.drawable.ic_rest +i));
+         }
 
-        GridView gridView = (GridView) view.findViewById(R.id.gridView3);
-        ImageAdapter imageAdapter = new ImageAdapter(getActivity());
-        imageAdapter.setId(3);
-        gridView.setAdapter(imageAdapter);
+        gridView.setAdapter(adapter);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if(position == 0) {
                     getActivity().setTitle(R.string.menu_item);
-                    Fragment fragment = new FragmentMenu();
+                    Fragment fragment = new FragmentCat();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.MyFrameLayout, fragment);
                     ft.commit();
@@ -98,6 +106,8 @@ public class FragmentRest extends Fragment {
         });
 
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

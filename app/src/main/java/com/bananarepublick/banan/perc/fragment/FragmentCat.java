@@ -1,26 +1,32 @@
 package com.bananarepublick.banan.perc.fragment;
 
-import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.bananarepublick.banan.perc.Adapters.ImageAdapter;
+import com.bananarepublick.banan.perc.Adapters.Rest;
 import com.bananarepublick.banan.perc.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentSale.OnFragmentInteractionListener} interface
+ * {@link FragmentCat.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FragmentSale#newInstance} factory method to
+ * Use the {@link FragmentCat#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentSale extends Fragment {
+public class FragmentCat extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,7 +38,7 @@ public class FragmentSale extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FragmentSale() {
+    public FragmentCat() {
         // Required empty public constructor
     }
 
@@ -42,11 +48,11 @@ public class FragmentSale extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentSale.
+     * @return A new instance of fragment FragmentCat.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentSale newInstance(String param1, String param2) {
-        FragmentSale fragment = new FragmentSale();
+    public static FragmentCat newInstance(String param1, String param2) {
+        FragmentCat fragment = new FragmentCat();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,18 +73,35 @@ public class FragmentSale extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sale, container, false);
+        return inflater.inflate(R.layout.fragment_cat, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ArrayList<Rest> objects = new ArrayList<Rest>();
+        ImageAdapter adapter;
 
+        GridView gridView = (GridView) view.findViewById(R.id.gridView1);
+        adapter = new ImageAdapter(getActivity(),objects);
+        for (int i = 0; i <= 5; i++) {
+            objects.add(new Rest(R.string.cat +i, R.drawable.ic_cat +i));
+        }
 
-        GridView gridView = (GridView) view.findViewById(R.id.gridView2);
+        gridView.setAdapter(adapter);
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
+                if(position == 0) {
+                    Fragment fragment = new FragmentMenu();
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.MyFrameLayout, fragment);
+                    ft.commit();
+                }
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -13,8 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bananarepublick.banan.perc.fragment.FragmentCat;
 import com.bananarepublick.banan.perc.fragment.FragmentDelivery;
-import com.bananarepublick.banan.perc.fragment.FragmentMenu;
 import com.bananarepublick.banan.perc.fragment.FragmentRest;
 import com.bananarepublick.banan.perc.fragment.FragmentSale;
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.menu:
                 setTitle(R.string.menu_item);
-                fragment = new FragmentMenu();
+                fragment = new FragmentCat();
                 break;
 
             case R.id.sale:
