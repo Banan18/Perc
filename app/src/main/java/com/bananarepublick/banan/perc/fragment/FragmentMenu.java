@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.bananarepublick.banan.perc.Adapters.ImageAdapterTwo;
@@ -77,17 +78,20 @@ public class FragmentMenu extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Prod> objects = new ArrayList<Prod>();
-        ImageAdapterTwo adapter;
+        final ImageAdapterTwo adapter;
+        final Button button = (Button) view.findViewById(R.id.button);
+
 
         GridView gridView = (GridView) view.findViewById(R.id.gridView3);
-        adapter = new ImageAdapterTwo(getActivity(),objects);
+        adapter = new ImageAdapterTwo(getActivity(), objects);
         for (int i = 0; i <= 5; i++) {
-            objects.add(new Prod(R.string.menu +i, i+100 , R.drawable.ic_menu +i));
+            objects.add(new Prod(R.string.menu + i, i + 100, R.drawable.ic_menu + i, false));
         }
-
         gridView.setAdapter(adapter);
 
+
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

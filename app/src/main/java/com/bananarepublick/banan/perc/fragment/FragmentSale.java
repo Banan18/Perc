@@ -78,7 +78,6 @@ public class FragmentSale extends Fragment {
         GridView gridView = (GridView) view.findViewById(R.id.gridView2);
 
 
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event

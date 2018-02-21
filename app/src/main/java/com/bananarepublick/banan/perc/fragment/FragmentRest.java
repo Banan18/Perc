@@ -83,11 +83,11 @@ public class FragmentRest extends Fragment {
         ArrayList<Rest> objects = new ArrayList<Rest>();
         ImageAdapter adapter;
 
-       GridView gridView = (GridView) view.findViewById(R.id.gridView4);
-        adapter = new ImageAdapter(getActivity(),objects);
-          for (int i = 0; i <= 3; i++) {
-              objects.add(new Rest(R.string.rest +i, R.drawable.ic_rest +i));
-         }
+        GridView gridView = (GridView) view.findViewById(R.id.gridView4);
+        adapter = new ImageAdapter(getActivity(), objects);
+        for (int i = 0; i <= 3; i++) {
+            objects.add(new Rest(R.string.rest + i, R.drawable.ic_rest + i));
+        }
 
         gridView.setAdapter(adapter);
 
@@ -95,7 +95,7 @@ public class FragmentRest extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(position == 0) {
+                if (position == 0) {
                     getActivity().setTitle(R.string.menu_item);
                     Fragment fragment = new FragmentCat();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -106,7 +106,6 @@ public class FragmentRest extends Fragment {
         });
 
     }
-
 
 
     // TODO: Rename method, update argument and hook method into UI event

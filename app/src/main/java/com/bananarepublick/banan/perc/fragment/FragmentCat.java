@@ -1,10 +1,10 @@
 package com.bananarepublick.banan.perc.fragment;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,9 +83,9 @@ public class FragmentCat extends Fragment {
         ImageAdapter adapter;
 
         GridView gridView = (GridView) view.findViewById(R.id.gridView1);
-        adapter = new ImageAdapter(getActivity(),objects);
+        adapter = new ImageAdapter(getActivity(), objects);
         for (int i = 0; i <= 5; i++) {
-            objects.add(new Rest(R.string.cat +i, R.drawable.ic_cat +i));
+            objects.add(new Rest(R.string.cat + i, R.drawable.ic_cat + i));
         }
 
         gridView.setAdapter(adapter);
@@ -94,7 +94,7 @@ public class FragmentCat extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(position == 0) {
+                if (position == 0) {
                     Fragment fragment = new FragmentMenu();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.MyFrameLayout, fragment);

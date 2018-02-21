@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity
         Display(1);
 
 
-
-
     }
 
     @Override
@@ -78,15 +76,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.basket_tool) {
+            Display(R.id.delivery);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
     public void Display(int id) {

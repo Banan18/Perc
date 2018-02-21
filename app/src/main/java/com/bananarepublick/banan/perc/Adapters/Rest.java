@@ -8,7 +8,7 @@ public class Rest {
     int name;
     int image;
 
-    public Rest(int _name, int _image){
+    public Rest(int _name, int _image) {
         name = _name;
         image = _image;
 

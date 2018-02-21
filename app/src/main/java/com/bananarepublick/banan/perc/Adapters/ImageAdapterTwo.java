@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bananarepublick.banan.perc.R;
 
@@ -49,28 +51,51 @@ public class ImageAdapterTwo extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
-        if(convertView == null){
+        if (convertView == null) {
 
 
             view = lInflater.inflate(R.layout.cellgrid, parent, false);
 
 
         }
-        Prod p = getProd(position);
+        final Prod p = getProd(position);
 
         ((ImageView) view.findViewById(R.id.imagepart)).setImageResource(p.image);
         ((TextView) view.findViewById(R.id.textmenu1)).setText(p.name);
         ((TextView) view.findViewById(R.id.textpart)).setText(p.price);
+        Button button = view.findViewById(R.id.button);
 
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p.basket = true;
+                StringBuilder result = new StringBuilder("Товары в корзине:");
+                for (Prod p : getBasket()) {
+                    if (p.basket)
+                        result.append("\n").append(context.getString(p.name));
+                }
+                Toast.makeText(context, result.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         return view;
     }
 
-    private Prod getProd(int position){
-        return ((Prod)getItem(position));
+    private Prod getProd(int position) {
+        return ((Prod) getItem(position));
     }
+
+    ArrayList<Prod> getBasket() {
+        ArrayList<Prod> basket = new ArrayList<Prod>();
+        for (Prod p : objects) {
+            if (p.basket)
+                basket.add(p);
+        }
+        return basket;
+    }
+
+
 }
